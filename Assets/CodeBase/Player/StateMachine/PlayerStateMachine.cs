@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerStateMachine : IStateSwitcher
@@ -7,12 +8,12 @@ public class PlayerStateMachine : IStateSwitcher
     private IState _currentState;
     private List<IState> _states;
 
-    public PlayerStateMachine()
+    public PlayerStateMachine(PlayerController playerController, PlayerStatsConfig playerStatsConfig)
     {
         _states = new List<IState>()
         {
-            new IdleState(),
-            new MovementState(),
+            new IdleState(playerController, this),
+            new MovementState(playerController, playerStatsConfig, this),
             new JumpState()
         };
 
@@ -20,10 +21,17 @@ public class PlayerStateMachine : IStateSwitcher
         _currentState.Enter();
     }
 
-    public void SwitchState<T>(IState state) where T : IState
+    public void SwitchState<T>() where T : IState
     {
+        IState state = _states.FirstOrDefault(s => s.GetType() == typeof(T));
+
         _currentState.Exit();
         _currentState = state;
         _currentState.Enter();
+    }
+
+    public void Update()
+    {
+        _currentState.Update();
     }
 }
