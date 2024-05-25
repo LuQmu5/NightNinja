@@ -15,8 +15,7 @@ public class JumpState : IState
     {
         Debug.Log("Jump Enter");
         _playerController.Animator.StartJump();
-        Vector2 force = new Vector2(_playerController.Rigidbody.velocity.x / 2, 1);
-        _playerController.Rigidbody.AddForce(force * _playerController.StatsConfig.JumpPower, ForceMode2D.Impulse);
+        _playerController.Rigidbody.AddForce(Vector2.up * _playerController.StatsConfig.JumpPower, ForceMode2D.Impulse);
     }
 
     public void Exit()
