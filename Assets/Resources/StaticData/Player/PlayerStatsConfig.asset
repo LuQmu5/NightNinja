@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4696175a3d0064c459d32f138f66200d, type: 3}
   m_Name: PlayerStatsConfig
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 8
+  <GroundSpeed>k__BackingField: 8
+  <AirSpeed>k__BackingField: 4
+  <JumpPower>k__BackingField: 12

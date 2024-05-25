@@ -8,13 +8,13 @@ public class PlayerStateMachine : IStateSwitcher
     private IState _currentState;
     private List<IState> _states;
 
-    public PlayerStateMachine(PlayerController playerController, PlayerStatsConfig playerStatsConfig)
+    public PlayerStateMachine(PlayerController playerController)
     {
         _states = new List<IState>()
         {
             new IdleState(playerController, this),
-            new MovementState(playerController, playerStatsConfig, this),
-            new JumpState()
+            new MovementState(playerController, this),
+            new JumpState(playerController, this)
         };
 
         _currentState = _states[0];
