@@ -3,11 +3,11 @@ using Zenject;
 
 public class GameInstaller : MonoInstaller
 {
-    private const string PlayerStatsConfigPath = "StaticData/Player/PlayerStatsConfig";
+    private const string PlayerStatsConfigPath = "StaticData/Character/CharacterConfig";
 
     public override void InstallBindings()
     {
-        PlayerStatsConfig playerStatsConfig = Resources.Load<PlayerStatsConfig>(PlayerStatsConfigPath);
+        CharacterConfig playerStatsConfig = Resources.Load<CharacterConfig>(PlayerStatsConfigPath);
 
         Container.BindInstance(playerStatsConfig);
         Container.Bind<PlayerInput>().AsSingle();
