@@ -1,6 +1,6 @@
 using UnityEngine.InputSystem;
 
-public class GroundedState : MovementState
+public class GroundedState : BaseState
 {
     public GroundedState(IStateSwitcher stateSwitcher, StateMachineData data, Character character) : base(stateSwitcher, data, character)
     {
@@ -28,7 +28,7 @@ public class GroundedState : MovementState
         if (Character.OnGround)
             return;
 
-        StateSwitcher.SwitchState<FallingState>();
+        StateSwitcher.SwitchState<FallState>();
     }
 
     protected override void AddInputActionsCallbacks()
@@ -45,5 +45,5 @@ public class GroundedState : MovementState
         Input.Movement.Jump.started -= OnJumpKeyPressed;
     }
 
-    private void OnJumpKeyPressed(InputAction.CallbackContext obj) => StateSwitcher.SwitchState<JumpingState>();
+    private void OnJumpKeyPressed(InputAction.CallbackContext obj) => StateSwitcher.SwitchState<JumpState>();
 }

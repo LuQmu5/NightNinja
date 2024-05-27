@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AirborneState : MovementState
+public class AirborneState : BaseState
 {
     public AirborneState(IStateSwitcher stateSwitcher, StateMachineData data, Character character) : base(stateSwitcher, data, character)
     {

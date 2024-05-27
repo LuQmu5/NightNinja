@@ -1,6 +1,6 @@
-public class FallingState : AirborneState
+public class FallState : AirborneState
 {
-    public FallingState(IStateSwitcher stateSwitcher, StateMachineData data, Character character) : base(stateSwitcher, data, character)
+    public FallState(IStateSwitcher stateSwitcher, StateMachineData data, Character character) : base(stateSwitcher, data, character)
     {
 
     }
@@ -28,7 +28,7 @@ public class FallingState : AirborneState
             Data.YVelocity = 0;
 
             if (IsHorizontalInputZero())
-                StateSwitcher.SwitchState<IdlingState>();
+                StateSwitcher.SwitchState<IdleState>();
             else
                 StateSwitcher.SwitchState<RunState>();
         }

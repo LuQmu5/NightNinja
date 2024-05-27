@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using Zenject;
 
-public class Character : MonoBehaviour
+public class Character : MonoBehaviour, ICoroutineRunner
 {
     [SerializeField] private CharacterView _view;
     [SerializeField] private Transform _legs;
@@ -20,6 +19,7 @@ public class Character : MonoBehaviour
     public PlayerInput Input => _input;
     public CharacterView View => _view;
     public bool OnGround => Physics2D.OverlapCircle(_legs.position, _legsRadius, _groundMask);
+    public bool IsAttacking { get; private set; } = false;
 
     [Inject]
     public void Construct(CharacterConfig config)
@@ -39,4 +39,7 @@ public class Character : MonoBehaviour
     private void OnEnable() => _input.Enable();
 
     private void OnDisable() => _input.Disable();
+
+    public void StartAttack() => IsAttacking = true;
+    public void StopAttack() => IsAttacking = false;
 }

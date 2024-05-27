@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public abstract class MovementState : IState
+public abstract class BaseState : IState
 {
     protected IStateSwitcher StateSwitcher;
     protected StateMachineData Data;
     protected Character Character;
 
-    protected MovementState(IStateSwitcher stateSwitcher, StateMachineData data, Character character) 
+    protected BaseState(IStateSwitcher stateSwitcher, StateMachineData data, Character character) 
     {
         StateSwitcher = stateSwitcher;
         Data = data;
@@ -23,6 +23,8 @@ public abstract class MovementState : IState
     public virtual void Enter()
     {
         Debug.Log(GetType());
+
+        Data.Speed = Character.Config.GroundedStateConfig.Speed;
 
         AddInputActionsCallbacks();
     }
@@ -45,9 +47,26 @@ public abstract class MovementState : IState
         Character.transform.rotation = GetRotationFrom(velocity);
     }
 
-    protected virtual void AddInputActionsCallbacks() { }
+    protected virtual void AddInputActionsCallbacks() 
+    {
+        Input.Combat.Attack.started += OnAttack;
+    }
 
-    protected virtual void RemoveInputActionsCallbacks() { }
+    protected virtual void RemoveInputActionsCallbacks() 
+    {
+        Input.Combat.Attack.started -= OnAttack;
+    }
+
+    private void OnAttack(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        if (Character.IsAttacking)
+            return;
+
+        if (Character.OnGround)
+            StateSwitcher.SwitchState<AttackState>();
+        else
+            StateSwitcher.SwitchState<JumpAttackState>();
+    }
 
     protected bool IsHorizontalInputZero() => Data.XInput == 0;
 

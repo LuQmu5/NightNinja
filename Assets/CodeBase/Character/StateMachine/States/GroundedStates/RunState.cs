@@ -10,8 +10,6 @@ public class RunState : GroundedState
     {
         base.Enter();
 
-        Data.Speed = Character.Config.GroundedStateConfig.Speed;
-
         View.StartRun();
     }
 
@@ -27,6 +25,6 @@ public class RunState : GroundedState
         base.Update();
 
         if (IsHorizontalInputZero())
-            StateSwitcher.SwitchState<IdlingState>();
+            StateSwitcher.SwitchState<IdleState>();
     }
 }

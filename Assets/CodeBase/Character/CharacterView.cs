@@ -7,6 +7,8 @@ public class CharacterView : MonoBehaviour
 
     private const string IsGrounded = nameof(IsGrounded);
     private const string IsAirborne = nameof(IsAirborne);
+    private const string IsCombat = nameof(IsCombat);
+    private const string IsJumpAttack = nameof(IsJumpAttack);
 
     private const string IsIdle = nameof(IsIdle);
     private const string IsRun = nameof(IsRun);
@@ -19,6 +21,12 @@ public class CharacterView : MonoBehaviour
     public void StartAirborne() => _animator.SetBool(IsAirborne, true);
     public void StopAirborne() => _animator.SetBool(IsAirborne, false);
 
+    public void StartCombat() => _animator.SetBool(IsCombat, true);
+    public void StopCombat() => _animator.SetBool(IsCombat, false);
+
+    public void StartJumpAttack() => _animator.SetBool(IsJumpAttack, true);
+    public void StopJumpAttack() => _animator.SetBool(IsJumpAttack, false);
+
     public void StartIdle() => _animator.SetBool(IsIdle, true);
     public void StopIdle() => _animator.SetBool(IsIdle, false);
 
@@ -30,4 +38,6 @@ public class CharacterView : MonoBehaviour
 
     public void StartFall() => _animator.SetBool(IsFall, true);
     public void StopFall() => _animator.SetBool(IsFall, false);
+
+    public float GetCurrentAnimationLength() => _animator.GetCurrentAnimatorStateInfo(0).length;
 }

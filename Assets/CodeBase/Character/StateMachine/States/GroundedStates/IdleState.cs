@@ -1,6 +1,6 @@
-public class IdlingState : GroundedState
+public class IdleState : GroundedState
 {
-    public IdlingState(IStateSwitcher stateSwitcher, StateMachineData data, Character character) : base(stateSwitcher, data, character)
+    public IdleState(IStateSwitcher stateSwitcher, StateMachineData data, Character character) : base(stateSwitcher, data, character)
     {
     }
 

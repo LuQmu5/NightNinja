@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class JumpingState : AirborneState
+public class JumpState : AirborneState
 {
-    public JumpingState(IStateSwitcher stateSwitcher, StateMachineData data, Character character) : base(stateSwitcher, data, character)
+    public JumpState(IStateSwitcher stateSwitcher, StateMachineData data, Character character) : base(stateSwitcher, data, character)
     {
 
     }
@@ -28,6 +28,6 @@ public class JumpingState : AirborneState
         base.Update();
 
         if (Data.YVelocity < 0)
-            StateSwitcher.SwitchState<FallingState>();
+            StateSwitcher.SwitchState<FallState>();
     }
 }
