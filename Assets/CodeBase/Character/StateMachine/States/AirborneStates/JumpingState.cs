@@ -13,14 +13,14 @@ public class JumpingState : AirborneState
 
         Data.YVelocity = Character.Config.AirborneStateConfig.JumpPower;
 
-        View.StartJumping();
+        View.StartJump();
     }
 
     public override void Exit()
     {
         base.Exit();
 
-        View.StopJumping();
+        View.StopJump();
     }
 
     public override void Update()

@@ -10,14 +10,14 @@ public class IdlingState : GroundedState
 
         Data.Speed = 0;
 
-        View.StartIdling();
+        View.StartIdle();
     }
 
     public override void Exit()
     {
         base.Exit();
 
-        View.StopIdling();
+        View.StopIdle();
     }
 
     public override void Update()

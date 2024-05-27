@@ -2032,6 +2032,8 @@ GameObject:
   - component: {fileID: 1784388281}
   - component: {fileID: 1784388280}
   - component: {fileID: 1784388278}
+  - component: {fileID: 1784388283}
+  - component: {fileID: 1784388284}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -2122,7 +2124,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2166,7 +2168,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10745424, y: -0.14537972}
+  m_Offset: {x: -0.08304638, y: -0.17238843}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2177,7 +2179,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7333337, y: 1.6118737}
+  m_Size: {x: 0.78214943, y: 1.5487335}
   m_EdgeRadius: 0
 --- !u!95 &1784388282
 Animator:
@@ -2189,7 +2191,7 @@ Animator:
   m_GameObject: {fileID: 1784388277}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bdee44b700c23254e9eead0a0e98dedc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5dfdf6234f17c194790b7eb26a9f870d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2200,6 +2202,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1784388283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784388277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6356f13baacab4c9f0e29980ba2a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1784388282}
+--- !u!114 &1784388284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784388277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85c4c461affd364e8b2fbb641aa0bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _view: {fileID: 1784388283}
+  _legs: {fileID: 854539941}
+  _legsRadius: 0.1
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1810160007
 GameObject:
   m_ObjectHideFlags: 0

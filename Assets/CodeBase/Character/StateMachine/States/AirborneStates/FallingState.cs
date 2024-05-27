@@ -9,14 +9,14 @@ public class FallingState : AirborneState
     {
         base.Enter();
 
-        View.StartFalling();
+        View.StartFall();
     }
 
     public override void Exit()
     {
         base.Exit();
 
-        View.StopFalling();
+        View.StopFall();
     }
 
     public override void Update()

@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using Zenject;
 
-[RequireComponent(typeof(CharacterController))]
 public class Character : MonoBehaviour
 {
     [SerializeField] private CharacterView _view;
